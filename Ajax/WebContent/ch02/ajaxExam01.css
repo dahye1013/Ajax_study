@@ -1,0 +1,10 @@
+@charset "UTF-8";
+div#displayArea{
+	display:none; /* 영역도 없앤다. */
+	/* visibility:hidden; */ /* 영역은 살아있고 눈에만 안보이게함, */
+	width:200px;
+	height:200px;
+	border-color: #6699ff;
+	border-style: double;
+}
+

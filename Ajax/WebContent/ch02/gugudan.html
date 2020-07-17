@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>gugudan</title>
+<style type="text/css">
+#gugudan{
+	visibility:hidden;
+}
+</style>
+
+</head>
+<body>
+ <form name="inputForm" method="post">
+	<input type="text" id="dan" name="dan">
+	<input type="button" value="입력" onclick="gugudanRequest()"/>
+</form>
+
+ <div id="gugudan" style="border:1px red solid"></div>
+</body>
+
+
+
+<script type="text/javascript">
+
+let httpRequest = null;
+function gugudanRequest(){
+	let dan = document.inputForm.dan.value;
+	httpRequest = new XMLHttpRequest();
+	httpRequest.onreadystatechange = getGugudan;
+	httpRequest.open("POST", "getGugudan.jsp", true);
+	httpRequest.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");
+	httpRequest.send("dan="+dan);
+	
+}
+
+function getGugudan(){
+	if(httpRequest.readyState == 4){
+		if(httpRequest.status == 200){
+			let gugudan = document.getElementById("gugudan");
+			let gugudanA = httpRequest.responseText;
+			gugudan.style.visibility="visible";
+			gugudan.innerHTML = "<strong>" + gugudanA + "</strong>"; 
+
+		}
+	}
+}
+
+</script>
+
+</html>

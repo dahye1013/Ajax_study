@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>simpleAjaxApp</title>
+</head>
+<body>
+<input type="button" value="simple.jsp" onclick="load('simple.jsp')">
+
+</body>
+<script type="text/javascript">
+var httpRequest; /* 전역에서 사용하도록 선언 */
+
+function load(url){
+	httpRequest = new XMLHttpRequest(); /* 자바스크립은 변수타입을 구분하지 않는다. */
+	httpRequest.onreadystatechange = viewMessage; /* onreadystatechange는 내가 응답할때 다음(viewMessage)를 하라는것 */
+	httpRequest.open("GET",url,true);/* get방식으로 비동기로 url에 가라 */
+	httpRequest.send("");
+}
+function viewMessage(){
+	if(httpRequest.readyState==4){
+		if(httpRequest.status==200){
+//			alert(httpRequest.responseText);
+			console.log(httpRequest.responseText)
+		}else{
+			alert(httpRequest.status);
+		}
+	}
+}
+
+
+</script>
+</html>

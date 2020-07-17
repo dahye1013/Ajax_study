@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<p id="p1" style="border:1px red solid;"><strong>Ajax</strong> 프로그래밍,<br>기초</p>
+<!-- p는 줄바꿈을 하지만, div는 줄 바꿈을 하지 않는다. -->
+
+<input type="button" value="보기" onclick="view()"/>
+</body>
+<script type="text/javascript">
+function view(){
+				/* id가 p1인 값을 받아와라 */
+	let p1 = document.getElementById("p1");
+//	alert(p1);  /* 객체 주소값이 나온다 	 */
+//	alert(p1.tagName); /* p1 을 감싸고 있는 tag네임 */
+//	alert(p1.innerText); /* p1사이에 있는 문자열 */
+	alert(p1.innerHTML); /* p1에있는 문자열과 tag을 가져온다 */
+	
+	
+}
+</script>
+
+</html>

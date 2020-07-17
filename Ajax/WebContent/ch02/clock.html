@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>clock</title>
+</head>
+<body>	<!-- span은 width 영역을 잡을 수 없다. -->
+현재 시간은 <span id="clock" style="border:1px dotted red"></span>입니다.
+</body>
+<script type="text/javascript">
+window.onload = function(){
+	printTime();
+}
+
+function printTime(){
+	let clock = document.getElementById("clock");
+	let now = new Date(); /* 자바 스크립에 존재하는 클래스, 자바에만 존재하면 import해야한다. */
+	
+	clock.innerHTML=now.getFullYear() + "년"
+					+ (now.getMonth()+1) + "월"
+					+ now.getDate() + "일"
+					+ now.getHours() + "시"
+					+ now.getMinutes() + "분"
+					+ now.getSeconds() + "초";
+	setTimeout("printTime()",1000);
+				/* 단위가 1/1000초  . 즉, 1초마다 호출*/
+}
+
+
+</script>
+</html>
